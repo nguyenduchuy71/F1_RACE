@@ -32,6 +32,7 @@ def base_crawl(driver, url, header, start_year=1950, end_year=2023):
         df = pd.DataFrame(data_race, columns=[header])
         df['year'] = year
         list_data_frame.append(df)
+        data_race_not_null = []
     data_df = pd.concat(list_data_frame)
     driver.quit()
     return data_df
