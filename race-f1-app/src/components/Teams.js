@@ -1,62 +1,32 @@
 import React, { useEffect } from 'react'
 import SelectBox from './SelectBox'
 import { useTeamStore } from '../store/TeamStore';
+import BarChartElement from './BarChartElement';
 
 function Teams() {
-    const [list_team_result, getListTeamResult, list_year, selected_year, setSelectedYear] = useTeamStore((state) => [
-        state.list_team_result,
-        state.getListTeamResult,
-        state.list_year,
-        state.selected_year,
-        state.setSelectedYear,
+    const [getListTeamResult, list_year, selected_year, setSelectedYear,
+            list_winner_info, list_pts_info, list_background_color] = useTeamStore((state) => [
+            state.getListTeamResult,
+            state.list_year,
+            state.selected_year,
+            state.setSelectedYear,
+            state.list_winner_info,
+            state.list_pts_info,
+            state.list_background_color
         ]);
         useEffect(() => {
-        getListTeamResult();
+            getListTeamResult();
         }, [getListTeamResult]);
     return (
-        <div className="m-4 flex justify-center flex-row items-stretch flex-wrap-reverse">
-        <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md mr-5 flex-grow">
-        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
-            <thead className="bg-gray-50">
-            <tr>
-                <th scope="col" className="px-6 py-4 font-medium text-gray-900">POS</th>
-                <th scope="col" className="px-6 py-4 font-medium text-gray-900">TEAM</th>
-                <th scope="col" className="px-6 py-4 font-medium text-gray-900">PTS</th>
-            </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100 border-t border-gray-100">
-                {list_team_result && list_team_result.map((value) => 
-                    {
-                        if(value.year === selected_year){
-                            return (
-                                <tr className="hover:bg-gray-50">
-                                <td className="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                                    <div className="text-sm">
-                                        <div className="font-medium text-yellow-400">{value?.POS}</div>
-                                    </div>
-                                </td>
-                                <td className="px-6 py-4">
-                                    <span
-                                        className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600"
-                                    >
-                                        <span className="h-1.5 w-1.5 rounded-full bg-green-600"></span>
-                                        {value?.TEAM}
-                                    </span>
-                                </td>
-                                <td className="px-6 py-4 text-gray-700">{value?.PTS}</td>
-                            </tr>
-                            )
-                        }
-                    }
-                )}
-            </tbody>
-        </table>
+        <div className="my-4 px-4 min-h-screen flex justify-center flex-col items-center">
+            <div className="mb-5">
+                <SelectBox listyear={list_year} selectedYear={selected_year} onSetSelectedYear={setSelectedYear} />
+            </div>
+            <BarChartElement list_year_info={list_winner_info} list_pos_info={list_pts_info} 
+                list_background_color={list_background_color} axis={'x'} x_label={'Teams'}
+                y_label={'Points'} title={`The ranking of the teams of the year ${selected_year}`} />
         </div>
-        <div className="mb-5">
-            <SelectBox listyear={list_year} selectedYear={selected_year} onSetSelectedYear={setSelectedYear} />
-        </div>
-    </div>
-  )
+    )
 }
 
 export default Teams

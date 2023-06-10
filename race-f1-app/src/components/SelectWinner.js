@@ -3,14 +3,14 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 
-export default function SelectBox({ listyear, selectedYear, onSetSelectedYear}) {
+export default function SelectWinner({ listwinner, selectedWinner, onSetSelectedWinner}) {
 
   return (
-    <div className="w-72 z-50">
-      <Listbox value={selectedYear} onChange={onSetSelectedYear}>
+    <div className="w-72 z-40">
+      <Listbox value={selectedWinner} onChange={onSetSelectedWinner}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-            <span className="block truncate">{selectedYear}</span>
+            <span className="block truncate">{selectedWinner}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
                 className="h-5 w-5 text-gray-400"
@@ -25,7 +25,7 @@ export default function SelectBox({ listyear, selectedYear, onSetSelectedYear}) 
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {listyear.map((year, index) => (
+              {listwinner.map((winner, index) => (
                 <Listbox.Option
                   key={index}
                   className={({ active }) =>
@@ -33,7 +33,7 @@ export default function SelectBox({ listyear, selectedYear, onSetSelectedYear}) 
                       active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                     }`
                   }
-                  value={year}
+                  value={winner}
                 >
                   {({ selected }) => (
                     <>
@@ -42,7 +42,7 @@ export default function SelectBox({ listyear, selectedYear, onSetSelectedYear}) 
                           selected ? 'font-medium' : 'font-normal'
                         }`}
                       >
-                        {year}
+                        {winner}
                       </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
