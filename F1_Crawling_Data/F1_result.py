@@ -51,6 +51,6 @@ def crawl_team_result(driver, header, start_year, end_year):
     df = base_crawl(driver, url, header, start_year, end_year)
     df.to_csv(F'{DATA_FOLDER}/team_result.csv', index=False)
 
-# crawl_race_result(driver, RACE_RESULT_HEADER, 2000, 2022)
-# crawl_driver_result(driver, DRIVER_RESULT_HEADER, 2000, 2022)
-# crawl_team_result(driver, TEAM_RESULT_HEADER, 2000, 2022)
+# crawl_race_result(driver, RACE_RESULT_HEADER, 1960, 2022)
+# crawl_driver_result(driver, DRIVER_RESULT_HEADER, 1960, 2022)
+# crawl_team_result(driver, TEAM_RESULT_HEADER, 1960, 2022)
