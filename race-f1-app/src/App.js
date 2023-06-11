@@ -10,6 +10,7 @@ import Drivers from './components/Drivers';
 import Footer from './components/Footer';
 import DriverInfo from './components/DriverInfo';
 import TeamInfo from './components/TeamInfo';
+import NotFoundPage from './components/NotFoundPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/teams/*" element={<TeamInfo />} />
         <Route path="/drivers" element={<Drivers />} />
         <Route path="/drivers/*" element={<DriverInfo />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer className="absolute bottom-0" />
     </div>

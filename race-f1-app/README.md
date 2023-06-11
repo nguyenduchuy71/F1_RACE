@@ -1,7 +1,10 @@
 # Part 2(ReactJS) - Visualize data
 
 ## Description:
- - ### By using ReactJS framework and the Chart.js library to getting and visualizing data.
+ - ### By using the Chart.js library to visualize data.
+ - ### By using the Tailwind CSS to create a user interface easily for junior and high-level development with the help of utility classes.
+ - ### By using the Zustand to manage state.
+ - ### By using the React-Router to routing library in React. It keeps the app's interface in sync with the URL in the browser.
  - ### By using the https://app.netlify.com website to deploy this app.
 
 ## Step to run code for visualizing data
