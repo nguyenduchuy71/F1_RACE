@@ -1,4 +1,6 @@
-# Part 1(Python) - Preapre data
+# Part 1(Python) - Prepare data
+
+## Description: Using the Selenium for crawling and the Pandas to processing data from the https://www.formula1.com.
 
 ## Step to run code for crawling data
  - ### Step 1: Set up a virtual environment
