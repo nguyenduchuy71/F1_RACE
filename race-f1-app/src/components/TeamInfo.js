@@ -19,7 +19,7 @@ function TeamInfo() {
     }, [getListTeamInfoResult, team_name]);
 
   return (
-    <div className="m-4 min-h-screen rounded-lg bg-white flex flex-col justify-center">
+    <div className="m-4 min-h-screen rounded-lg bg-white flex flex-col">
         <div className="text-center p-2 mb-2 border border-gray-200 shadow-md">
             <h2 className="text-lg">{team_name}</h2> 
         </div>
