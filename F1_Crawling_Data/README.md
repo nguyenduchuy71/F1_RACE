@@ -19,5 +19,5 @@
 ## NOTE:
   - ### Make sure that your computer is installed with Python and Pip.
   - ### After the crawling data is completed the result will be saved in the **F1_Crawling_Data/data** folder.
-  - ### To save time so I just crawl the data from **1960-2022**.
+  - ### The data is crawled from **1960-2023**.
   - ### I can't crawl the data in multiple parts at once, please remove the comments part by part in the **F1_result.py** file from line **55-57** to do the data crawling.
