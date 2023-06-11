@@ -1,21 +1,7 @@
 import { getRaceResult } from '../lib/getRaceResult';
 import { create } from 'zustand';
 import team_result_dir from '../data/team_result.csv';
-
-function random_rgba() {
-    var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + '0.9' + ')';
-}
-
-const handle_list_year = list_object => {
-    let list_array_year = [];
-    list_object.forEach((obj_value) => {
-        if(obj_value?.year && list_array_year.includes(obj_value?.year) === false){
-            list_array_year = [...list_array_year, obj_value?.year];
-        }
-    });
-    return list_array_year.sort((a, b) => {return b-a});
-}
+import { random_rgba, handle_list_year } from '../utils/Utils';
 
 export const useTeamStore = create((set, get) => ({
     list_team_result: [],

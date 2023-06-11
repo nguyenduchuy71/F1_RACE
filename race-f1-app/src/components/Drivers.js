@@ -20,7 +20,7 @@ function Drivers() {
     }, [getListDriverResult]);
 
     return (
-        <div className="my-4 px-4 min-h-screen flex justify-center flex-col items-center">
+        <div className="my-4 px-4 min-h-screen flex flex-col items-center">
             <div className="mb-5">
                 <SelectBox listyear={list_year} selectedYear={selected_year} onSetSelectedYear={setSelectedYear} />
             </div>
