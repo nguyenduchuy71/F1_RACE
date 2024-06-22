@@ -1,23 +1,23 @@
-const csvFileToArray = (string) => {
-  const csvHeader = string.slice(0, string.indexOf("\n")).split(",");
-  const csvRows = string.slice(string.indexOf("\n") + 1).split("\n");
-  const array_object = csvRows.map((i) => {
+const convertCSVFileToArray = (string) => {
+  const headers = string.slice(0, string.indexOf("\r\n")).split(",");
+  const rowData = string.slice(string.indexOf("\r\n") + 1).split("\n");
+  const listData = rowData.map((i) => {
     const values = i.split(",");
-    const obj = csvHeader.reduce((object, header, index) => {
+    const obj = headers.reduce((object, header, index) => {
       object[header] = values[index];
       return object;
     }, {});
     return obj;
   });
-  return array_object;
+  return listData;
 };
 
 export const getRaceResult = async (path_data) => {
-  let list_race_result = "";
+  let listRaceResult = "";
   await fetch(path_data)
     .then((response) => response.text())
     .then((responseText) => {
-      list_race_result = responseText;
+      listRaceResult = responseText;
     });
-  return csvFileToArray(list_race_result);
+  return convertCSVFileToArray(listRaceResult);
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useTeamStore } from "../../store/TeamStore";
+import { useTeamStore } from "../../stores/TeamStore";
 import BarChartElement from "../../components/BarChartElement";
 import SelectBox from "../../components/SelectBox";
 
@@ -25,12 +25,12 @@ const Teams = () => {
     getListTeamResult();
   }, [getListTeamResult]);
   return (
-    <div className="my-4 px-4 min-h-screen flex flex-col items-center">
-      <div className="mb-5">
+    <div className="my-4 px-4 flex flex-wrap justify-center">
+      <div className="w-28 mb-5">
         <SelectBox
-          listyear={list_year}
-          selectedYear={selected_year}
-          onSetSelectedYear={setSelectedYear}
+          listData={list_year}
+          selectedData={selected_year}
+          onSetSelectedData={setSelectedYear}
         />
       </div>
       <BarChartElement

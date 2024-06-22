@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDriverStore } from "../../store/DriverStore";
+import { useDriverStore } from "../../stores/DriverStore";
 import SelectBox from "../../components/SelectBox";
 import BarChartElement from "../../components/BarChartElement";
 
@@ -27,12 +27,12 @@ const Drivers = () => {
   }, [getListDriverResult]);
 
   return (
-    <div className="my-4 px-4 min-h-screen flex flex-col items-center">
-      <div className="mb-5">
+    <div className="my-4 px-4 flex flex-wrap justify-center">
+      <div className="w-28 mb-5">
         <SelectBox
-          listyear={list_year}
-          selectedYear={selected_year}
-          onSetSelectedYear={setSelectedYear}
+          listData={list_year}
+          selectedData={selected_year}
+          onSetSelectedData={setSelectedYear}
         />
       </div>
       <BarChartElement

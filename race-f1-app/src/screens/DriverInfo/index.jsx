@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useDriverInfoStore } from "../../store/DriverInfoStore";
+import { useDriverInfoStore } from "../../stores/DriverInfoStore";
 import BarChartElement from "../../components/BarChartElement";
 
 export default function DriverInfo() {
@@ -28,7 +28,7 @@ export default function DriverInfo() {
   }, [getListDriverInfoResult, driver_name]);
 
   return (
-    <div className="m-4 min-h-screen rounded-lg bg-white flex flex-col">
+    <div className="m-10 min-h-screen rounded-lg bg-white flex flex-col">
       <div className="text-center p-2 mb-2 border border-gray-200 shadow-md">
         <h2 className="text-lg">
           {driver_name} - {list_driver_info[0]?.NATIONALITY}
@@ -43,7 +43,6 @@ export default function DriverInfo() {
         y_label={"Years"}
         title={"Driver's positioning over the years"}
       />
-      ;
     </div>
   );
 }

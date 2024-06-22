@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useTeamInforStore } from "../../store/TeamInfoStore";
+import { useTeamInforStore } from "../../stores/TeamInfoStore";
 import BarChartElement from "../../components/BarChartElement";
 
 function TeamInfo() {

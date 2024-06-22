@@ -1,7 +1,7 @@
-import { getRaceResult } from "../utils/handleFileData";
 import { create } from "zustand";
 import driver_result_dir from "../data/driver_result.csv";
-import { random_rgba, handle_list_year } from "../utils";
+import { getRaceResult } from "../utils/handleFileData";
+import { random_color, handleListYear } from "../utils";
 
 export const useDriverStore = create((set, get) => ({
   list_driver_result: [],
@@ -11,7 +11,7 @@ export const useDriverStore = create((set, get) => ({
   list_background_color: [],
   getListDriverResult: async () => {
     let list_driver_result = await getRaceResult(driver_result_dir);
-    const list_year = handle_list_year(list_driver_result);
+    const list_year = handleListYear(list_driver_result);
     const selected_year = list_year.slice(0)[0];
     let list_pts_info = [];
     let list_background_color = [];
@@ -23,7 +23,7 @@ export const useDriverStore = create((set, get) => ({
       if (item?.year === selected_year) {
         list_winner_info = [...list_winner_info, item?.DRIVER];
         list_pts_info = [...list_pts_info, item?.PTS];
-        list_background_color = [...list_background_color, random_rgba()];
+        list_background_color = [...list_background_color, random_color()];
       }
     });
     set({ list_winner_info });
@@ -41,7 +41,7 @@ export const useDriverStore = create((set, get) => ({
       if (item?.year === selected_year) {
         list_winner_info = [...list_winner_info, item?.DRIVER];
         list_pts_info = [...list_pts_info, item?.PTS];
-        list_background_color = [...list_background_color, random_rgba()];
+        list_background_color = [...list_background_color, random_color()];
       }
     });
     set({ list_winner_info });

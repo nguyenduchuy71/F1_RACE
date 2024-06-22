@@ -1,11 +1,7 @@
 import { getRaceResult } from "../utils/handleFileData";
 import { create } from "zustand";
 import race_result_dir from "../data/race_result.csv";
-import {
-  handle_list_year,
-  handle_list_winner,
-  handle_list_car,
-} from "../utils";
+import { handleListYear, handleListWinner, handleListCar } from "../utils";
 
 export const useRaceStore = create((set, get) => ({
   list_race_result: [],
@@ -18,9 +14,9 @@ export const useRaceStore = create((set, get) => ({
   list_winner: [],
   getListRaceResult: async () => {
     const list_race_result = await getRaceResult(race_result_dir);
-    const list_year = handle_list_year(list_race_result);
-    const list_winner = handle_list_winner(list_race_result);
-    const list_car = handle_list_car(list_race_result);
+    const list_year = handleListYear(list_race_result);
+    const list_winner = handleListWinner(list_race_result);
+    const list_car = handleListCar(list_race_result);
     const selected_year = list_year.slice(0)[0];
     const selected_winner = "ALL";
     const selected_car = "ALL";

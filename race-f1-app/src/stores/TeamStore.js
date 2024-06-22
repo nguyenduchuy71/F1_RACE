@@ -1,7 +1,7 @@
 import { getRaceResult } from "../utils/handleFileData";
 import { create } from "zustand";
 import team_result_dir from "../data/team_result.csv";
-import { random_rgba, handle_list_year } from "../utils";
+import { random_color, handleListYear } from "../utils";
 
 export const useTeamStore = create((set, get) => ({
   list_team_result: [],
@@ -11,7 +11,7 @@ export const useTeamStore = create((set, get) => ({
   list_background_color: [],
   getListTeamResult: async () => {
     let list_team_result = await getRaceResult(team_result_dir);
-    const list_year = handle_list_year(list_team_result);
+    const list_year = handleListYear(list_team_result);
     const selected_year = list_year.slice(0)[0];
     let list_pts_info = [];
     let list_background_color = [];
@@ -23,7 +23,7 @@ export const useTeamStore = create((set, get) => ({
       if (item?.year === selected_year) {
         list_winner_info = [...list_winner_info, item?.TEAM];
         list_pts_info = [...list_pts_info, item?.PTS];
-        list_background_color = [...list_background_color, random_rgba()];
+        list_background_color = [...list_background_color, random_color()];
       }
     });
     set({ list_winner_info });
@@ -41,7 +41,7 @@ export const useTeamStore = create((set, get) => ({
       if (item?.year === selected_year) {
         list_winner_info = [...list_winner_info, item?.TEAM];
         list_pts_info = [...list_pts_info, item?.PTS];
-        list_background_color = [...list_background_color, random_rgba()];
+        list_background_color = [...list_background_color, random_color()];
       }
     });
     set({ list_winner_info });

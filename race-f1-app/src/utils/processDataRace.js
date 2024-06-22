@@ -1,67 +1,61 @@
-export const handle_list_year = (list_object) => {
-  let list_array_year = [];
-  list_object.forEach((obj_value) => {
-    if (
-      obj_value?.year &&
-      list_array_year.includes(obj_value?.year) === false
-    ) {
-      list_array_year = [...list_array_year, obj_value?.year];
+export const handleListYear = (payload) => {
+  let listYear = [];
+  payload.forEach((item) => {
+    if (item?.year && !listYear.includes(item?.year)) {
+      listYear = [...listYear, item?.year];
     }
   });
-  return list_array_year.sort((a, b) => {
+  return listYear.sort((a, b) => {
     return b - a;
   });
 };
 
-export const handle_list_winner = (list_object) => {
-  let list_array_winner = [];
-  list_object.forEach((obj_value) => {
-    if (
-      obj_value?.WINNER &&
-      list_array_winner.includes(obj_value?.WINNER) === false
-    ) {
-      list_array_winner = [...list_array_winner, obj_value?.WINNER];
+export const handleListWinner = (payload) => {
+  let listWinner = [];
+  payload.forEach((item) => {
+    if (item?.WINNER && !listWinner.includes(item?.WINNER)) {
+      listWinner = [...listWinner, item?.WINNER];
     }
   });
-  list_array_winner = [...list_array_winner, "ALL"];
-  return list_array_winner.sort((a, b) => {
-    return a - b;
+  listWinner = listWinner.sort((a, b) => {
+    return a.localeCompare(b);
   });
+  return ["ALL", ...listWinner];
 };
 
-export const handle_list_car = (list_object) => {
-  let list_array_car = [];
-  list_object.forEach((obj_value) => {
-    if (obj_value?.CAR && list_array_car.includes(obj_value?.CAR) === false) {
-      list_array_car = [...list_array_car, obj_value?.CAR];
+export const handleListCar = (payload) => {
+  let listCar = [];
+  payload.forEach((value) => {
+    if (value?.CAR && !listCar.includes(value?.CAR)) {
+      listCar = [...listCar, value?.CAR];
     }
   });
-  list_array_car = [...list_array_car, "ALL"];
-  return list_array_car.sort((a, b) => {
-    return a - b;
+  listCar = listCar.sort((a, b) => {
+    return a.localeCompare(b);
   });
+  return ["ALL", ...listCar];
 };
 
-export const handle_team_info = (list_object, team_name) => {
-  let list_team_info = [];
-  list_object.forEach((obj_value) => {
-    if (obj_value?.TEAM === team_name) {
-      list_team_info = [...list_team_info, obj_value];
+export const handleTeamInfo = (payload, nameTeam) => {
+  let listTeamInfo = [];
+  payload.forEach((value) => {
+    if (value?.TEAM === nameTeam) {
+      listTeamInfo = [...listTeamInfo, value];
     }
   });
-  return list_team_info.sort((a, b) => {
+  return listTeamInfo.sort((a, b) => {
     return b?.year - a?.year;
   });
 };
 
-export const handle_driver_info = (list_object, driver_name) => {
-  let list_driver_info = [];
-  list_object.forEach((obj_value) => {
-    if (obj_value?.DRIVER === driver_name) {
-      list_driver_info = [...list_driver_info, obj_value];
+export const handleDriverInfo = (payload, driverName) => {
+  let listDriverInfo = [];
+  payload.forEach((value) => {
+    if (value?.DRIVER === driverName) {
+      listDriverInfo = [...listDriverInfo, value];
     }
   });
-  return list_driver_info.sort((a, b) => {
+  return listDriverInfo.sort((a, b) => {
     return b?.year - a?.year;
   });
 };

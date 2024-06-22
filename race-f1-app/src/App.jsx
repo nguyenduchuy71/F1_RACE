@@ -11,26 +11,24 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="w-full h-screen">
-      <div className="relative">
-        <div
-          className="absolute top-0 left-0 w-full 
+    <div className="relative w-full">
+      <div
+        className="absolute top-0 left-0 w-full 
               h-96 bg-gradient-to-br from-pink-400 to-[#0055D1]
               rounded-md filter blur-3xl opacity-50 -z-50"
-        ></div>
-      </div>
-      <div>
+      ></div>
+      <div className="min-h-screen">
         <Header />
         <Routes>
-          <Route path="/" element={<Race />} />
+          <Route path="/" element={<Race />} exact />
           <Route path="/teams" element={<Teams />} />
           <Route path="/teams/*" element={<TeamInfo />} />
-          <Route path="/drivers" element={<Drivers />} />
-          <Route path="/drivers/*" element={<DriverInfo />} />
+          <Route path="/bikers" element={<Drivers />} />
+          <Route path="/bikers/*" element={<DriverInfo />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <Footer className="absolute bottom-0" />
       </div>
+      <Footer />
     </div>
   );
 }

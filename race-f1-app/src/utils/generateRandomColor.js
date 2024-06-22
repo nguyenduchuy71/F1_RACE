@@ -1,4 +1,4 @@
-export const random_rgba = (alpha = 0.8) => {
+export const random_color = (alpha = 0.8) => {
   let o = Math.round,
     r = Math.random,
     s = 255;
